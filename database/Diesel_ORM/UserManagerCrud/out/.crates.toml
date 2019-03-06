@@ -1,0 +1,2 @@
+[v1]
+"UserManagerCrud 0.1.0 (path+file:///home/madara/rust/databases/UserManagerCrud)" = ["add_user", "check2auth", "delete_user", "show_users", "user_update"]

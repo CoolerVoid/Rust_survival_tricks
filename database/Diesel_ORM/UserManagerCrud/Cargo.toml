@@ -1,0 +1,30 @@
+[[bin]]
+name = "show_users"
+path = "src/bin/show_users.rs"
+
+[[bin]]
+name = "add_user"
+path = "src/bin/add_user.rs"
+
+[[bin]]
+name = "delete_user"
+path = "src/bin/delete_user.rs"
+
+[[bin]]
+name = "check2auth"
+path = "src/bin/check2auth.rs"
+
+[[bin]]
+name = "user_update"
+path = "src/bin/user_update.rs"
+
+[package]
+name = "UserManagerCrud"
+version = "0.1.0"
+license = "BSD"
+authors = ["Antonio Costa - Cooler_  <coolerlair@gmail.com>"]
+
+[dependencies]
+diesel = { version = "1.4.0", features = ["sqlite"] }
+dotenv = "0.10"
+crypto-hash = "0.3.3"
