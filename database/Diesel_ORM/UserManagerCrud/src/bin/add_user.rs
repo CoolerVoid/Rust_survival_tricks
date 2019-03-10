@@ -23,7 +23,10 @@ fn main() {
     stdin().read_line(&mut password).unwrap();
     let password = &password[..(password.len() - 1)]; // Drop the newline character
     let cryptpass = lambda_crypt::get_hash(password);
-    let _ = create_user(&connection, name, email, &cryptpass);
-    println!("\nSaved user {}", name);
+    if create_user(&connection, name, email, &cryptpass) == true {
+     	println!("Saved User! {}", name);
+    } else {
+	println!("Error in save user: {}",name);
+    } 
 }
 

@@ -17,15 +17,19 @@ pub fn establish_connection() -> SqliteConnection {
         .unwrap_or_else(|_| panic!("Error connecting to {}", database_url))
 }
 
-pub fn create_user(conn: &SqliteConnection, name: &str, email: &str, password: &str) -> usize {
+pub fn create_user(conn: &SqliteConnection, name: &str, email: &str, password: &str) -> bool {
     use schema::users;
 
     let new_user = NewUser { name, email, password };
 
-    diesel::insert_into(users::table)
+    let rows_inserted=diesel::insert_into(users::table) 
         .values(&new_user)
-        .execute(conn)
-        .expect("Error saving new User")
+        .execute(conn);
+
+    match rows_inserted {
+	Err(_) => return false,
+	Ok(_) => return true,
+    }    
 }
 
 
