@@ -35,8 +35,7 @@ fn read_lines(filename: impl AsRef<Path>) -> io::Result<()> {
 
     // Read the file line by line using the lines() iterator from std::io::BufRead.
     for (index, line) in reader.lines().enumerate() {
-        let line = line.unwrap(); // Ignore errors.
-        // Show the line and its number.
+        let line = line.unwrap(); 
         println!("{}. {}", index + 1, line);
     }
 
@@ -56,11 +55,19 @@ fn main() {
 // Write log example
  write_log("log.txt".to_string(),"kadabra!\n".to_string()).expect("Could not write in log file");
 
+// rename file
+ std::fs::rename("log.txt", "log2.txt").expect("Could not rename");
+
 // read lines
- let _test_call_line = read_lines("test.txt").expect("Error on read file");
+ let _test_call_line = read_lines("log.txt").expect("Error on read file");
+
+ std::fs::copy("log2.txt", "log1.txt").expect("Count not copy the file."); 
 
 // remove a file
- std::fs::remove_file("log.txt").expect("Could not remove logs");
+ std::fs::remove_file("log2.txt").expect("Could not remove logs");
+ std::fs::remove_file("log1.txt").expect("Could not remove logs");
+
+
 // create a directory
  std::fs::create_dir("test").expect("Could not create a directory");
 // remove a directory
