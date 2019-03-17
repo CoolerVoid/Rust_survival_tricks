@@ -49,6 +49,11 @@ let mut count = 0;
  println!("{}",word);
  println!("Values: \n{}\n",pres);
 
+ // tokenize example
+ let mut iter = "cow in grass".split_whitespace();
+ assert_eq!(Some("cow"), iter.next());
+ assert_eq!(Some("in"), iter.next());
+
 // split example util in CSV
  let mut listas: Vec<&str> = "bananas,apples,pear".split(",").collect(); // ["bananas", "apples", "pear"]
 // Add element on Vec
