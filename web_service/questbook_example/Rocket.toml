@@ -1,0 +1,11 @@
+[global]
+template_dir = "static"
+address = "127.0.0.1"
+port = 8003
+
+[global.databases.sqlite_database]
+url = "test.db"
+
+[global.tls]
+certs = "/var/www/cert/cert.pem"
+key = "/var/www/cert/key.pem"
