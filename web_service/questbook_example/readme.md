@@ -4,18 +4,29 @@
 This example uses Diesel+R2D2 with SQLite, Rocket to get inputs and return json...
 
 
-To run you need rust nightly...
+To run you need rust nightly in second step...
 
-Second step, run migrate:
+Second step, run migrate with stable Rust:
 
 ```
+$ source $HOME/.cargo/env
+$ rustup default stable
+
+$ cargo install diesel_cli --no-default-features --features sqlite
 DATABASE_URL=test.db diesel migration run
-```
 
-Configure your TLS cert in file "Rocket.toml", run cargo:
 
 ```
-ROCKET_PORT=3721 cargo run
+
+
+
+
+If you want configure your TLS cert in file "Rocket.toml", run cargo with Rust nighly:
+
+```
+$ rustup install nightly-2019-11-16
+$ rustup override set nightly-2019-11-16
+$ ROCKET_PORT=3721 cargo run
 ```
 
 

@@ -4,9 +4,12 @@ I create this example to study Rust with ORM.
 
 if u dont have Rust, install him following this steps:
 ```
+
 To install Rust and modules
-$ curl https://sh.rustup.rs -sSf | sh
-$ cargo install diesel_cli --no-default-features --features sqlite
+   $ source $HOME/.cargo/env
+   $ rustup default stable
+   $ cargo install diesel_cli --no-default-features --features sqlite
+
 
 ```
 
